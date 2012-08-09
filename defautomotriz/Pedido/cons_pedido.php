@@ -1,26 +1,4 @@
-<?php require_once('../../../Connections/alex.php'); ?>
-<?php
-$maxRows_Recordset1 = 10;
-$pageNum_Recordset1 = 0;
-if (isset($_GET['pageNum_Recordset1'])) {
-  $pageNum_Recordset1 = $_GET['pageNum_Recordset1'];
-}
-$startRow_Recordset1 = $pageNum_Recordset1 * $maxRows_Recordset1;
-
-mysql_select_db($database_alex, $alex);
-$query_Recordset1 = "SELECT * FROM cliente ORDER BY id_cliente ASC";
-$query_limit_Recordset1 = sprintf("%s LIMIT %d, %d", $query_Recordset1, $startRow_Recordset1, $maxRows_Recordset1);
-$Recordset1 = mysql_query($query_limit_Recordset1, $alex) or die(mysql_error());
-$row_Recordset1 = mysql_fetch_assoc($Recordset1);
-
-if (isset($_GET['totalRows_Recordset1'])) {
-  $totalRows_Recordset1 = $_GET['totalRows_Recordset1'];
-} else {
-  $all_Recordset1 = mysql_query($query_Recordset1);
-  $totalRows_Recordset1 = mysql_num_rows($all_Recordset1);
-}
-$totalPages_Recordset1 = ceil($totalRows_Recordset1/$maxRows_Recordset1)-1;
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <!-- DW6 -->
 <head>
@@ -63,43 +41,70 @@ $totalPages_Recordset1 = ceil($totalRows_Recordset1/$maxRows_Recordset1)-1;
 	<td width="146" valign="top"><p align="center"><img src="ford-logo.jpg" width="250" height="180" /></p>	  </td>
 	<td width="645" valign="top">&nbsp;
 	  <div align="center" class="Estilo1">
-	    <div align="left">PEDIDOS</div>
+	    <div align="left">AUTOS USADOS DISPONIBLES </div>
 	  </div>
 	  <form id="registrovend" name="form1" method="post" action="registrov.php">
         <p>
           <label></label>
-        </p>
         
-        <table border="1" cellspacing="2">
-          <tr>
-            <td>id_cliente</td>
-            <td>tipo_persona</td>
-            <td>nombre</td>
-            <td>ap_paterno</td>
-            <td>ap_materno</td>
-            <td>Direccion</td>
-            <td>Estado</td>
-            <td>Municipio</td>
-            <td>cp</td>
-            <td>tel_fijo</td>
-            <td>tel_movil</td>
-          </tr>
-          <?php do { ?>
-            <tr>
-              <td><?php echo $row_Recordset1['id_cliente']; ?></td>
-              <td><?php echo $row_Recordset1['tipo_persona']; ?></td>
-              <td><?php echo $row_Recordset1['nombre']; ?></td>
-              <td><?php echo $row_Recordset1['ap_paterno']; ?></td>
-              <td><?php echo $row_Recordset1['ap_materno']; ?></td>
-              <td><?php echo $row_Recordset1['Direccion']; ?></td>
-              <td><?php echo $row_Recordset1['Estado']; ?></td>
-              <td><?php echo $row_Recordset1['Municipio']; ?></td>
-              <td><?php echo $row_Recordset1['cp']; ?></td>
-              <td><?php echo $row_Recordset1['tel_fijo']; ?></td>
-              <td><?php echo $row_Recordset1['tel_movil']; ?></td>
-            </tr>
-            <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
-        </table>
+		<?
+
+$miconexion=mysql_connect ("localhost","root","@sepultura");
+mysql_select_db("autos",$miconexion);
+
+$result = mysql_query("SELECT * FROM `autos`.`cliente` LIMIT 0, 50;", $miconexion);
+
+if ($row = mysql_fetch_array($result)){
+
+echo "<table border = '1'> \n";
+
+echo "<tr> \n";
+
+echo "<td><b>ID</b></td> \n";
+echo "<td><b>PERSONA</b></td> \n";
+echo "<td><b>NOMBRE</b></td> \n";
+echo "<td><b>APELLIDO PATERNO</b></td> \n";
+echo "<td><b>APELLIDO MATERNO</b></td> \n";
+echo "<td><b>DIRECCION</b></td> \n";
+echo "<td><b>ESTADO</b></td> \n";
+echo "<td><b>MUNICIPIO</b></td> \n";
+echo "<td><b>CODIGO POSTAL</b></td> \n";
+echo "<td><b>TEL FIJO</b></td> \n";
+echo "<td><b>TEL CELULAR</b></td> \n";
+
+echo "</tr> \n";
+
+do {
+
+echo "<tr> \n";
+
+echo "<td>".$row["id_cliente"]."</td> \n";
+echo "<td>".$row["tipo_persona"]."</td>\n";
+echo "<td>".$row["nombre"]."</td>\n";
+echo "<td>".$row["ap_paterno"]."</td>\n";
+echo "<td>".$row["ap_materno"]."</td>\n";
+echo "<td>".$row["Direccion"]."</td>\n";
+echo "<td>".$row["Estado"]."</td>\n";
+echo "<td>".$row["Municipio"]."</td>\n";
+echo "<td>".$row["cp"]."</td>\n";
+echo "<td>".$row["tel_fijo"]."</td>\n";
+echo "<td>".$row["tel_movil"]."</td>\n";
+
+echo "</tr> \n";
+
+} while ($row = mysql_fetch_array($result));
+
+echo "</table> \n";
+
+} else {
+
+echo "¡ La base de datos está vacia !";
+
+}
+
+
+?>
+		</p>
         <p>&nbsp;</p>
 	  </form>	  </td>
 	<td width="12">&nbsp;</td>
@@ -140,6 +145,3 @@ $totalPages_Recordset1 = ceil($totalRows_Recordset1/$maxRows_Recordset1)-1;
 </table>
 </body>
 </html>
-<?php
-mysql_free_result($Recordset1);
-?>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:concepto;datatype:string" />
+	<infoitem key="UD_SERIE" value="name:serie;datatype:string" />
+	<infoitem key="UD_Recordset2" value="name:modelo;datatype:int" />
+	<infoitem key="UD_F_pago" value="name:concepto;datatype:string" />
+	<infoitem key="UD_modelo" value="name:modelo;datatype:int" />
+	<infoitem key="UD_catalogo" value="name:catalogo;datatype:string" />
+	<infoitem key="UD_serie" value="name:serie;datatype:string" />
+</info>

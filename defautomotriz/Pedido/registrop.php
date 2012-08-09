@@ -21,7 +21,7 @@
 
 	<tr bgcolor="#003399">
 	<td width="17" nowrap="nowrap">&nbsp;</td>
-	<td height="36" colspan="3" id="navigation" nowrap="nowrap" class="navText"><a href="alta_v.php">REGRESAR A REGISTRO </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td height="36" colspan="3" id="navigation" nowrap="nowrap" class="navText"><a href="../principal.php">REGRESAR A PRINCIPAL </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	  <td width="12">&nbsp;</td>
 	<td width="13">&nbsp;</td>
 	</tr>
@@ -31,7 +31,7 @@
 	</tr>
 
 	<tr bgcolor="#ffffff">
-	<td colspan="2" valign="top" bgcolor="#ffffcc"><p><img src="ford-logo.jpg" width="265" height="185" longdesc="Logo Ford" /></p>
+	<td colspan="2" valign="top" bgcolor="#ffffcc"><p><img src="ford-logo.jpg" width="250" height="180" longdesc="Logo Ford" /></p>
 	  <table border="0" cellspacing="0" cellpadding="0" width="230">
 		<tr>
 		<td width="15">&nbsp;</td>
@@ -48,25 +48,27 @@
 		</tr>
 
 <?
-$numero=$_POST['numero'];
-$txt_nombre=$_POST['txt_nombre'];
-$txt_nombre=$_POST['txt_nombre'];
-$txt_appat=$_POST['txt_appat'];
-$txt_apmat=$_POST['txt_apmat'];
-$txt_direccion=$_POST['txt_direccion'];
-$txt_telcasa=$_POST['txt_telcasa'];
-$txt_cel=$_POST['txt_cel'];
-$txt_ventas=$_POST['txt_ventas'];
-$txt_metavta=$_POST['txt_metavta'];
 
-$miconexion=mysql_connect ("localhost","root","@sepultura");
+$txt_idped=$_POST['txt_idped'];
+$txt_persona=$_POST['txt_persona'];
+$txt_nombre=$_POST['txt_nombre'];
+$txt_paterno=$_POST['txt_paterno'];
+$txt_materno=$_POST['txt_materno'];
+$txt_direccion=$_POST['txt_direccion'];
+$txt_estado=$_POST['txt_estado'];
+$txt_municipio=$_POST['txt_municipio'];
+$txt_postal=$_POST['txt_postal'];
+$txt_telcasa=$_POST['txt_telcasa'];
+$txt_telcel=$_POST['txt_telcel'];
+
+$miconexion = mysql_connect ("localhost","root","@sepultura");
 mysql_select_db("autos",$miconexion);
-$sql_query="insert into vendedor values ($numero,'$txt_nombre','$txt_appat','$txt_apmat','$txt_direccion','$txt_telcasa','$txt_cel',$txt_ventas,$txt_metavta)";
+$sql_query = "insert into cliente values ($txt_idped,'$txt_persona','$txt_nombre','$txt_paterno','$txt_materno','$txt_direccion','$txt_estado','$txt_municipio',$txt_postal,'$txt_telcasa','$txt_telcel')";
 if(mysql_query($sql_query,$miconexion))
 {	
 echo "<script type=\"text/javascript\">alert('Registro exitoso!!');</script>";
 
-echo "Se registo al vendedor: $txt_nombre $txt_appat $txt_apmat";
+echo "Se registo al Cliente: $txt_nombre $txt_paterno $txt_materno";
 } else {
 echo "ocurrio un error <a href='javascript:history.go(-1)'>Regresar</a>";
 }

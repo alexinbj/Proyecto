@@ -1,0 +1,48 @@
+Este pequeño ejemplo sólo tiene por objeto brindar una ayuda para quienes desean comenzar a programar
+     en un entorno multiusuario y no tengan la menor idea por donde empezar. Este ejemplo está compilado con
+     el VisualFoxPro 6.0. Si tienen otra versión podrán volverlo a compilar con la versión que ustedes tengan.
+Las caracteristicas del programa son las siguientes:
+1º Tiene un PRG de Inicio que evita que el mismo se ejecute dos veces en una misma PC, si está minimizado,
+     al  ejecutarse nuevamente en forma accidenta o no, simplemente se maximizará. Y otro PRG que controla el 
+     estado de la base de datos.
+2º Posee un formulario para "Registrar Usuario y  encripta la contraseña cuando el programa es ejecutado por
+     primera vez, permitiendo de este modo registrar al primer usuario con todos los privilegios,haciendo a su vez
+     de Administrador del mismo. A modo de ejemplo, la tabla Password tiene dos usuarios registrados, uno con
+     privilegios  Nombre: ROLANDO Contraseña: ROLANDO y el otro sin privilegios Nombre: JAQUELINA
+    Contraseña: JAQUELINA, pero, como lo dije antes si lo desean pueden vaciar la tabla Password y ejecutar el
+    programa y registrar a otra persona como Administrador y luego agregar los usuarios. Los usuarios que se
+    agregan no tienen privilegios, luego de agregarlos reinicien la  sesión desde la opción del menú Archivo,
+    Reiniciar Nueva sesión e ingresen el nombe y la contraseña de usuario recien agregado para ver el resultado.
+3º Despues de registrarse el primer usuario, aparecerá un segundo formulario de "Autorización" que le solicitará
+    el nombre y la contraseña con la que previamente se ha registrado para acceder al programa.
+4º El menú principal cuenta con dos opciones, la primera es "Archivo", que a su vez posee un submenú con dos
+    opciones "Reiniciar sesión" y "Salir" y la segunda opción es "Administrador" que cuenta con un submenú de
+    tres opciones, la primera es "Agrear usuarios", la segunda "Asignar permisos" y la Última  es "Artículos".
+5º El ejemplo está hecho para habilitar o deshabilitar las opciones del submenú de  "Administrador", las opciones
+     aparecerán habilitadas o no, dependiendo de los privilegios del usuario pero, la opción Artículos siempre 
+     estará habilitada en el Submenú Administrador, si el usuario no tiene privilegios para el formulario Articulos      
+     los botones Borrar, Nuevo y Editar aparecerán deshabilitados, también aparecerá una etiqueta con el nombre
+    del usuario en línea y su estado, indicando si tiene privilegios o no.
+6º En el formulario de "Asignar permisos", debe tildar lo que desea permitirle al usuario y guardar los cambio, y
+     dejar en blanco las que no quiere permitirle. En el caso de la opción "Restringir Acceso" deberá hacer al revéz
+     Tildando dicha opción y guardando los cambios, el usuario no podrá acceder al sistema; para permitirle el
+     acceso deberá dejar la opción en blanco, es decir, sin tildarla al guardar los cambios.
+
+    Espero haberles sido de ayuda en algo y, si necesitan algo más pueden escribirme a:
+    
+   JOSE ROLANDO QUINTERO PAZ
+   DARDO RICHA Nº 233, Bº CEMENTERIO
+   LA RIOJA - ARGENTINA
+   C.P. 5300
+    E-Mail: j_quintero_paz@hotmail.com
+	j_rol2003@yahoo.com.ar
+
+ P.D.   A ultimo momento le he agregado al programa varios formularios de Enviar y leer mensajes, Enviar
+           comandos entre terminales, Expulsar usuarios y un formulario que me permite ver los usuarios que se 
+           encuentran en línea en ese momento en las diferentes terminales, con su fecha y hora de ingreso.
+           bye bye
+
+            
+
+
+

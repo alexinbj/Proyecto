@@ -71,8 +71,8 @@ $totalRows_serie = mysql_num_rows($serie);
         <p>NUM
           <input name="txt_idped" type="text" id="txt_idped" size="3" maxlength="3" /> 
           TIPO PERSONA
-          <input name="txt_persona" type="text" id="txt_persona" size="10" maxlength="10" /> 
-        </p>
+          <input name="txt_persona" type="text" id="txt_persona" size="10" maxlength="10" />
+</p>
         <p>
           <label>NOMBRE</label>
           &nbsp;
@@ -192,8 +192,6 @@ do {
 	  $row_serie = mysql_fetch_assoc($serie);
   }
 ?>
-
-
         </select>
         </label>
         </p>

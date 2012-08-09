@@ -9,6 +9,10 @@
 <style type="text/css">
 <!--
 .Estilo1 {font-size: 12px}
+.Estilo2 {
+	color: #FF0000;
+	font-weight: bold;
+}
 -->
 </style>
 </head>
@@ -23,7 +27,7 @@
 
 	<tr bgcolor="#003399">
 	<td width="17" nowrap="nowrap">&nbsp;</td>
-	<td height="36" colspan="3" id="navigation" nowrap="nowrap" class="navText"><a href="javascript:;">REGRESAR A PRINCIPAL </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td height="36" colspan="3" id="navigation" nowrap="nowrap" class="navText"><a href="../principal.php">REGRESAR A PRINCIPAL</a></td>
 	  <td width="12">&nbsp;</td>
 	<td width="13">&nbsp;</td>
 	</tr>
@@ -34,9 +38,11 @@
 
 	<tr bgcolor="#ffffff">
 	<td colspan="2" valign="top" bgcolor="#ffffcc"><p>&nbsp;</p>	  </td>
-	<td width="63" valign="top"><p>&nbsp;</p>	  </td>
-	<td width="714" valign="top">&nbsp;
-	  <div align="center" class="Estilo1">REGISTRO DE VENDEDORES      </div>
+	<td width="255" valign="top"><p><img src="ford-logo.jpg" width="250" height="180" /></p>	  </td>
+	<td width="522" valign="top">&nbsp;
+	  <div align="center" class="Estilo1">
+	    <div align="left" class="Estilo2">REGISTRO DE VENDEDORES      </div>
+	  </div>
 	  <form id="registrovend" name="form1" method="post" action="registrov.php">
         <p>
           <label>NOMBRE</label>&nbsp;
@@ -135,8 +141,8 @@
 	<tr>
 	<td width="17">&nbsp;</td>
 	<td width="9">&nbsp;</td>
-	<td width="63">&nbsp;</td>
-	<td width="714">&nbsp;</td>
+	<td width="255">&nbsp;</td>
+	<td width="522">&nbsp;</td>
 	<td width="12">&nbsp;</td>
 	<td width="13">&nbsp;</td>
 	</tr>
